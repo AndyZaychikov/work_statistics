@@ -1,0 +1,4 @@
+/* CSS Document */
+td, th {border: thin solid black; padding: 10px;}
+table {border-collapse: collapse;}
+.highlight {background-color: green;}
