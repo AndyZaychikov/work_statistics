@@ -9,7 +9,15 @@ async function showData(){
   	let json = await response.json();
 	
 	//Теперь создадим таблицу
-	let tr = "";
+	let tr = '<tr class="table-dark">' +
+				'<th>id</th>' +
+				'<th>Name</th>' +
+				'<th>Username</th>' +
+				'<th>Email</th>' +
+				'<th>Phone</th>' +
+				'<th>Web-site</th>' +
+			'</tr>';
+
 	for (let i=0; i<json.length; i++){
 		tr += "<tr>";
 		tr += `<td>${json[i].id}</td>`;
@@ -31,10 +39,10 @@ let selectedTr;
 
 function highlight(tr) {
   if (selectedTr) { // убрать существующую подсветку, если есть
-    selectedTr.classList.remove('highlight');
+    selectedTr.classList.remove('table-success');
   }
   selectedTr = tr;
-  selectedTr.classList.add('highlight'); // подсветить новый tr
+  selectedTr.classList.add('table-success'); // подсветить новый tr
 }
 
 async function moreInfo (id) {
@@ -43,11 +51,21 @@ async function moreInfo (id) {
   	let json = await response.json();
 	
 	//Теперь создадим строки
-	let tr = "<tr><th>Parametri:</th><th>One location</th><th>Two location</th></tr>";
+	let tr = "<tr class='table-dark'><th>Parametri:</th><th>One location</th><th>Two location</th></tr>";
+
+	//for (let i=0; i<json.address.length; i++){
+		tr += "<tr>";
+		tr += `<th>Параметр 1</th>`;
+		tr += `<td>${json.address.street}</td>`;
+		tr += `<td>${json.address.suite}</td>`;
+		tr += "</tr><tr>";
+		tr += `<th>Параметр 2</th>`;
+		tr += `<td>${json.address.city}</td>`;
+		tr += `<td>${json.address.zipcode}</td>`;
+		tr += "</tr>";
+	//}
 	
-	for (var key in json.address) {
-    	tr += `<td>${json.address[key]}</td>`;
-	}
+	
 	
 	table_more_info.innerHTML = tr;
 }

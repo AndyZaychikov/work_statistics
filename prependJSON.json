@@ -1,0 +1,15 @@
+// JSON Document
+{
+  "id": 1,
+  "data": "20.12.2023",
+  "time": "15:50",
+  "starting_area": "ГИК",
+  "area_of_the_fall": "ЕКБ",
+  "result": {
+    "FIO_035": "Щерба А.С.",
+    "FIO_200": "Соломенцева В.А",
+	"number_of_objects": 20,
+    "number_of_combat_units": 8,
+    "unclassified": 2,
+  	}
+  }
